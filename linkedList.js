@@ -35,6 +35,31 @@ class LinkedList {
     }
     return tile;
   }
+  at(index) {
+    let cont = 0;
+    let node = this.Head;
+    if(node == null) return 0
+    while (cont != index) {
+      node = node.nextNode;
+      cont += 1;
+    }
+    return node;
+  }
+  pop() {
+    if(this.Head == null) return 'Cannot delete';
+    let current = this.Head;
+    let previous = null
+    while(current.nextNode != null){
+      previous = current;
+      current = current.nextNode;
+    }
+    
+    if(current == null) return 'Cannot delete';
+    // Delete current node
+    
+    previous.nextNode = null
+    this.size--
+  }
 }
 
 
@@ -51,8 +76,10 @@ list.append(3)
 list.append(4)
 list.prepend(5)
 list.prepend(6)
-list.size
 
+list.pop()
+
+// console.log(list.head());
+// console.log(list.tail());
+// console.log(list.at(4));
 console.log(list);
-console.log(list.head());
-console.log(list.tail());
