@@ -60,6 +60,18 @@ class LinkedList {
     previous.nextNode = null
     this.size--
   }
+  contains(value) {
+    if(this.Head == null) return 'The Head is empty';
+    let current = this.Head;
+    let result = false;
+    while (current != null) {
+      if(current.value == value){
+        result = true;
+      }
+      current = current.nextNode;
+    }
+    return result;
+  }
 }
 
 
@@ -78,8 +90,9 @@ list.prepend(5)
 list.prepend(6)
 
 list.pop()
-
+list
 // console.log(list.head());
 // console.log(list.tail());
 // console.log(list.at(4));
 console.log(list);
+console.log(list.contains(2));
