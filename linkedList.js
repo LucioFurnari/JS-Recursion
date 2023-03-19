@@ -72,6 +72,31 @@ class LinkedList {
     }
     return result;
   }
+  find(value) {
+    let cont = 0;
+    let node = this.Head;
+    if(node == null) return null
+    while (node.value != value) {
+      node = node.nextNode;
+      if(node == null) return null
+      cont += 1;
+    }
+    return cont;
+  }
+  toString(){
+    if(this.Head == null)return 'The HEAD is empty'
+    let node = this.Head;
+    let string = '';
+    while(node != null) {
+      if(node.nextNode == null) {
+        string += `(${node.value})`
+      } else {
+        string += `(${node.value}) => `
+      }
+      node = node.nextNode;
+    }
+    return string;
+  }
 }
 
 
@@ -96,3 +121,5 @@ list
 // console.log(list.at(4));
 console.log(list);
 console.log(list.contains(2));
+console.log(list.find(2));
+console.log(list.toString());
